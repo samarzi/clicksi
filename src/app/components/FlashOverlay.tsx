@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 export function FlashOverlay() {
-  const [currentStage, setCurrentStage] = useState<'black' | 'text' | 'flash' | 'fadeout'>('black');
+  const [currentStage, setCurrentStage] = useState<'black' | 'text' | 'flash'>('black');
   const [showOverlay, setShowOverlay] = useState(true);
 
   useEffect(() => {
@@ -16,20 +16,14 @@ export function FlashOverlay() {
       setCurrentStage('flash');
     }, 2000);
 
-    // Начало рассеивания белого экрана (сразу после вспышки)
-    const fadeoutTimer = setTimeout(() => {
-      setCurrentStage('fadeout');
-    }, 2500);
-
-    // Полное скрытие оверлея
+    // Полное скрытие оверлея (после того как вспышка погаснет)
     const doneTimer = setTimeout(() => {
       setShowOverlay(false);
-    }, 3500);
+    }, 3000);
 
     return () => {
       clearTimeout(textTimer);
       clearTimeout(flashTimer);
-      clearTimeout(fadeoutTimer);
       clearTimeout(doneTimer);
     };
   }, []);
@@ -48,17 +42,11 @@ export function FlashOverlay() {
           <motion.div
             initial={{ opacity: 1 }}
             animate={{ 
-              opacity: currentStage === 'flash' ? 0 : currentStage === 'fadeout' ? 0 : 1,
-              backgroundColor: 
-                currentStage === 'flash' || currentStage === 'fadeout' 
-                  ? '#ffffff' 
-                  : '#000000'
+              opacity: currentStage === 'flash' ? 0 : 1,
+              backgroundColor: currentStage === 'flash' ? '#ffffff' : '#000000'
             }}
             transition={{ 
-              opacity: { 
-                duration: currentStage === 'flash' ? 0.1 : 
-                          currentStage === 'fadeout' ? 1 : 0.5 
-              },
+              opacity: { duration: currentStage === 'flash' ? 0.5 : 0.5 },
               backgroundColor: { duration: 0.1 }
             }}
             className="absolute inset-0"
@@ -82,19 +70,9 @@ export function FlashOverlay() {
           {/* Белая вспышка */}
           {currentStage === 'flash' && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 0.3, times: [0, 0.05, 0.2, 1] }}
-              className="absolute inset-0 bg-white"
-            />
-          )}
-
-          {/* Рассеивающийся белый экран */}
-          {currentStage === 'fadeout' && (
-            <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: [1, 0] }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className="absolute inset-0 bg-white"
             />
           )}
