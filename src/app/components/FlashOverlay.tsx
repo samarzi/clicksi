@@ -16,15 +16,15 @@ export function FlashOverlay() {
       setCurrentStage('flash');
     }, 2000);
 
-    // Начало рассеивания белого экрана
+    // Начало рассеивания белого экрана (сразу после вспышки)
     const fadeoutTimer = setTimeout(() => {
       setCurrentStage('fadeout');
-    }, 3000);
+    }, 2500);
 
     // Полное скрытие оверлея
     const doneTimer = setTimeout(() => {
       setShowOverlay(false);
-    }, 4000);
+    }, 3500);
 
     return () => {
       clearTimeout(textTimer);
@@ -84,7 +84,7 @@ export function FlashOverlay() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 1, 0] }}
-              transition={{ duration: 1, times: [0, 0.1, 0.8, 1] }}
+              transition={{ duration: 0.3, times: [0, 0.05, 0.2, 1] }}
               className="absolute inset-0 bg-white"
             />
           )}
