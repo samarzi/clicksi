@@ -67,17 +67,17 @@ export function PhotoGallery() {
               whileHover={{ scale: 1.05, y: -8 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
-              className="relative aspect-square overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl shadow-yellow-400/10 cursor-pointer group border border-zinc-800 hover:border-yellow-400/30 transition-all duration-300"
+              className="relative aspect-square overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl shadow-[#00FFC8]/10 cursor-pointer group border border-zinc-800 hover:border-[#00FFC8]/30 transition-all duration-300"
             >
               <ImageWithFallback
                 src={photo.url}
                 alt={photo.alt}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-500 group-hover:brightness-110 group-hover:shadow-[#00FFC8]/50"
               />
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-t from-[#00FFC8]/20 via-transparent to-transparent pointer-events-none"
               />
               {hoveredIndex === index && (
                 <motion.div

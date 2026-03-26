@@ -47,7 +47,7 @@ export function ClickFlashEffect() {
               marginLeft: "-10px",
               marginTop: "-10px",
             }}
-            className="rounded-full bg-yellow-400/60"
+            className="rounded-full bg-[#00FFC8]/60"
           />
         ))}
       </AnimatePresence>

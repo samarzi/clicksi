@@ -49,19 +49,19 @@ export function Testimonials() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="bg-zinc-900 border border-zinc-800 hover:border-yellow-400/30 rounded-3xl p-8 shadow-2xl hover:shadow-yellow-400/10 transition-all"
+              className="bg-zinc-900 border border-zinc-800 hover:border-[#00FFC8]/30 rounded-3xl p-8 shadow-2xl hover:shadow-[#00FFC8]/10 transition-all"
             >
               <div className="flex items-center mb-6">
                 <ImageWithFallback
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover mr-4 ring-2 ring-yellow-400/30"
+                  className="w-16 h-16 rounded-full object-cover mr-4 ring-2 ring-[#00FFC8]/30"
                 />
                 <div>
                   <h4 className="mb-1 text-white">{testimonial.name}</h4>
                   <div className="flex gap-1">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 fill-[#00FFC8] text-[#00FFC8]" />
                     ))}
                   </div>
                 </div>

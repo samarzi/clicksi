@@ -45,38 +45,38 @@ export function BookingSection() {
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-yellow-400" />
+                  <div className="w-12 h-12 rounded-full bg-[#00FFC8]/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-[#00FFC8]" />
                   </div>
                   <div>
                     <p className="text-zinc-400 text-sm mb-1">Телефон</p>
-                    <a href="tel:+74951234567" className="text-white text-lg hover:text-yellow-400 transition-colors">
+                    <a href="tel:+74951234567" className="text-white text-lg hover:text-[#00FFC8] transition-colors">
                       +7 (495) 123-45-67
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-yellow-400" />
+                  <div className="w-12 h-12 rounded-full bg-[#00FFC8]/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-[#00FFC8]" />
                   </div>
                   <div>
                     <p className="text-zinc-400 text-sm mb-1">Email</p>
-                    <a href="mailto:info@clicksi.ru" className="text-white text-lg hover:text-yellow-400 transition-colors">
+                    <a href="mailto:info@clicksi.ru" className="text-white text-lg hover:text-[#00FFC8] transition-colors">
                       info@clicksi.ru
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center flex-shrink-0">
-                    <Send className="w-5 h-5 text-yellow-400" />
+                  <div className="w-12 h-12 rounded-full bg-[#00FFC8]/10 flex items-center justify-center flex-shrink-0">
+                    <Send className="w-5 h-5 text-[#00FFC8]" />
                   </div>
                   <div className="flex-1">
                     <p className="text-zinc-400 text-sm mb-2">Telegram</p>
                     <Button
                       onClick={handleTelegramClick}
-                      className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105"
+                      className="bg-[#00FFC8] hover:bg-[#00E6B8] text-black font-semibold rounded-full transition-all duration-300 hover:scale-105"
                     >
                       Написать
                     </Button>
@@ -93,14 +93,14 @@ export function BookingSection() {
                       onClick={() => setSelectedLocation(location)}
                       className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                         selectedLocation.id === location.id
-                          ? "bg-yellow-400/10 border border-yellow-400/30"
+                          ? "bg-[#00FFC8]/10 border border-[#00FFC8]/30"
                           : "bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <MapPin className={`w-5 h-5 ${selectedLocation.id === location.id ? "text-yellow-400" : "text-zinc-400"}`} />
+                        <MapPin className={`w-5 h-5 ${selectedLocation.id === location.id ? "text-[#00FFC8]" : "text-zinc-400"}`} />
                         <div>
-                          <p className={`font-medium ${selectedLocation.id === location.id ? "text-yellow-400" : "text-white"}`}>
+                          <p className={`font-medium ${selectedLocation.id === location.id ? "text-[#00FFC8]" : "text-white"}`}>
                             {location.name}
                           </p>
                           <p className="text-sm text-zinc-400">{location.address}</p>

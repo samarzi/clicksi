@@ -71,7 +71,7 @@ export function Hero() {
           className="mb-4 sm:mb-6"
         >
           <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-white/20">
-            <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
+            <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#00FFC8]" />
             <span className="text-white/90 tracking-wide text-sm sm:text-base">Фотоуслуги нового поколения</span>
           </div>
         </motion.div>
@@ -82,7 +82,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight"
         >
-          Click<span className="text-yellow-400">si</span>
+          Click<span className="text-[#00FFC8]">si</span>
         </motion.h1>
 
         <motion.p
@@ -103,7 +103,7 @@ export function Hero() {
           <Button
             onClick={scrollToBooking}
             size="lg"
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full shadow-2xl hover:shadow-yellow-400/50 transition-all duration-300 hover:scale-105"
+            className="bg-[#00FFC8] hover:bg-[#00E6B8] text-black font-semibold px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg rounded-full shadow-2xl hover:shadow-[#00FFC8]/50 transition-all duration-300 hover:scale-105"
           >
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             <span className="text-sm sm:text-base">Забронировать фотосессию</span>

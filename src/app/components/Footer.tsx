@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" />
+              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-[#00FFC8]" />
               <span className="text-xl sm:text-2xl">Clicksi</span>
             </div>
             <p className="text-zinc-400">
@@ -41,21 +41,21 @@ export function Footer() {
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 href="#"
-                className="w-10 h-10 bg-yellow-400 text-black rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                className="w-10 h-10 bg-[#00FFC8] text-black rounded-full flex items-center justify-center hover:bg-[#00E6B8] transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 href="#"
-                className="w-10 h-10 bg-yellow-400 text-black rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                className="w-10 h-10 bg-[#00FFC8] text-black rounded-full flex items-center justify-center hover:bg-[#00E6B8] transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 href="#"
-                className="w-10 h-10 bg-yellow-400 text-black rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                className="w-10 h-10 bg-[#00FFC8] text-black rounded-full flex items-center justify-center hover:bg-[#00E6B8] transition-colors"
               >
                 <Youtube className="w-5 h-5" />
               </motion.a>
