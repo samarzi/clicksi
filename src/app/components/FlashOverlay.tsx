@@ -2,34 +2,80 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
 export function FlashOverlay() {
-  const [show, setShow] = useState(true);
+  const [currentStage, setCurrentStage] = useState<'black' | 'text' | 'flash'>('black');
+  const [showOverlay, setShowOverlay] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 1200);
-    return () => clearTimeout(timer);
+    // Черный экран с appearing текстом "Улыбнись"
+    const textTimer = setTimeout(() => {
+      setCurrentStage('text');
+    }, 300);
+
+    // Белая вспышка
+    const flashTimer = setTimeout(() => {
+      setCurrentStage('flash');
+    }, 2000);
+
+    // Конец анимации
+    const doneTimer = setTimeout(() => {
+      setShowOverlay(false);
+    }, 3000);
+
+    return () => {
+      clearTimeout(textTimer);
+      clearTimeout(flashTimer);
+      clearTimeout(doneTimer);
+    };
   }, []);
 
   return (
     <AnimatePresence>
-      {show && (
+      {showOverlay && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 1, 0] }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, times: [0, 0.1, 0.8, 1] }}
-          className="fixed inset-0 bg-white z-50 pointer-events-none flex items-center justify-center"
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 pointer-events-none flex items-center justify-center"
         >
+          {/* Черный фон */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 1.2, times: [0, 0.2, 0.7, 1] }}
-            className="text-center"
-          >
-            <div className="text-6xl mb-4">📸</div>
-            <h1 className="text-4xl tracking-wider text-black">Clicksi</h1>
-          </motion.div>
+            initial={{ opacity: 1 }}
+            animate={{ 
+              opacity: currentStage === 'flash' ? 0 : 1,
+              backgroundColor: currentStage === 'flash' ? '#ffffff' : '#000000'
+            }}
+            transition={{ 
+              opacity: { duration: currentStage === 'flash' ? 0.1 : 0.5 },
+              backgroundColor: { duration: 0.1 }
+            }}
+            className="absolute inset-0"
+          />
+          
+          {/* Текст "Улыбнись" */}
+          {currentStage === 'text' && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.1 }}
+              transition={{ duration: 0.8 }}
+              className="relative z-10 text-center"
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-white tracking-wider">
+                Улыбнись
+              </h1>
+            </motion.div>
+          )}
+
+          {/* Белая вспышка */}
+          {currentStage === 'flash' && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 1, times: [0, 0.1, 0.8, 1] }}
+              className="absolute inset-0 bg-white"
+            />
+          )}
         </motion.div>
       )}
     </AnimatePresence>
