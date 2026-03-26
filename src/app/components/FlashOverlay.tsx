@@ -19,7 +19,7 @@ export function FlashOverlay() {
     // Полное скрытие оверлея (после того как вспышка погаснет)
     const doneTimer = setTimeout(() => {
       setShowOverlay(false);
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearTimeout(textTimer);
@@ -46,7 +46,7 @@ export function FlashOverlay() {
               backgroundColor: currentStage === 'flash' ? '#ffffff' : '#000000'
             }}
             transition={{ 
-              opacity: { duration: currentStage === 'flash' ? 0.5 : 0.5 },
+              opacity: { duration: currentStage === 'flash' ? 1.5 : 0.5 },
               backgroundColor: { duration: 0.1 }
             }}
             className="absolute inset-0"
@@ -72,7 +72,7 @@ export function FlashOverlay() {
             <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               className="absolute inset-0 bg-white"
             />
           )}
