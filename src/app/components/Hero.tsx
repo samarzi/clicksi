@@ -82,7 +82,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight"
         >
-          Click<span className="text-[#00FFC8]">si</span>
+          <img src="/logo.png" alt="Clicksi" className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto" />
         </motion.h1>
 
         <motion.p

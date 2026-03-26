@@ -1,4 +1,4 @@
-import { Camera, Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 import { motion } from "motion/react";
 
 export function Footer() {
@@ -8,8 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
             <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <Camera className="w-6 h-6 sm:w-8 sm:h-8 text-[#00FFC8]" />
-              <span className="text-xl sm:text-2xl">Clicksi</span>
+              <img src="/logo.png" alt="Clicksi" className="w-6 h-6 sm:w-8 sm:h-8" />
             </div>
             <p className="text-zinc-400">
               Ваши эмоции, в наших кадрах
